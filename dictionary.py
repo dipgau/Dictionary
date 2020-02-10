@@ -21,20 +21,20 @@ def dictionary(word):
 
     # if the entered word does not matches the content in data file, this function checks
     # if there is any close match and if the matches are more than one
-    elif len(get_close_matches(word, data.keys(), n=2)) > 0:
+    elif len(get_close_matches(word, data.keys(), n=2)):
         # print the two closest alternatives for users to tell if it was their desired search
         print('Do you want to search %s or %s instead?' % (get_close_matches(
             word, data.keys(), n=2)[0], get_close_matches(word, data.keys(), n=2)[1]))
 
         # if user wants to take the first alternative given by program, 1 is entered and for second, 2 is inputted
-        value = input('Enter 1 for %s or 2 for %s or any button to exit: ' % (get_close_matches(
+        value = input('Enter 1 for %s or 2 for %s: ' % (get_close_matches(
             word, data.keys(), n=2)[0], get_close_matches(word, data.keys(), n=2)[1]))
 
         # when user enters the value of 1, the function returns the first alternative
-        if value == str(1):
+        if value == "1":
             return data[get_close_matches(word, data.keys(), n=2)[0]]
         # when user enters the value of 2, second alternative is shown
-        elif value == str(2):
+        elif value == "2":
             return data[get_close_matches(word, data.keys(), n=2)[1]]
         # if program does not see neither 1 nor 0, it returns the following statement
         else:
